@@ -9,6 +9,9 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId")
+    private Integer userId;
+
+    @Column(name = "emailId")
     private String emailId;
 
     @Column(name = "firstName")
@@ -23,6 +26,14 @@ public class User implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String emailId) {
+        this.userId = emailId.hashCode();
     }
 
     public String getFirstName() {

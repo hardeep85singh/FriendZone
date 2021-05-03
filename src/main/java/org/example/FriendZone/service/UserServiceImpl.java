@@ -14,9 +14,14 @@ public class UserServiceImpl implements UserService{
     private UserRepository userRepository;
 
     @Override
-    public void createUser(User user) {
-        userRepository.save(new User(user.getFirstName(),
-                user.getLastName(), user.getEmailId()));
+    public User createUser(User user) {
+        if(userRepository.existsById(user.getUserId())){
+            return null;
+        } else {
+            user.setUserId(user.getEmailId());
+            return userRepository.save(new User(user.getFirstName(),
+                    user.getLastName(), user.getEmailId()));
+        }
     }
 
     @Override
@@ -25,11 +30,21 @@ public class UserServiceImpl implements UserService{
     }
 
    @Override
-   public User findUser(String userId){
+   public User findUser(Integer userId){
         if(userRepository.existsById(userId)){
             return userRepository.getOne(userId);
         } else {
             return null;
         }
    }
+
+    @Override
+    public String deleteUser(Integer userId) {
+        if(userRepository.existsById(userId)){
+            userRepository.deleteById(userId);
+            return "User deleted successfully";
+        } else {
+            return "User not found";
+        }
+    }
 }

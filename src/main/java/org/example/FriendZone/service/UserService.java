@@ -5,9 +5,11 @@ import org.example.FriendZone.model.User;
 import java.util.List;
 
 public interface UserService {
-    public void createUser(User user);
+    public User createUser(User user);
 
     public List<User> findAllUsers();
 
-    public User findUser(String userId);
+    public User findUser(Integer userId);
+
+    public String deleteUser(Integer userId);
 }
