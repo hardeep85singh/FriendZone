@@ -9,47 +9,64 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    // Get/users
+//    @PostMapping(path = "/users/register")
+//    public void addUser(@RequestBody User user){
+//        userService.createUser(user);
+//    }
+
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.findAllUsers();
     }
 
+
+
+}
+
+
+
+    // Get/users
+//    @GetMapping("/users")
+//    public List<User> getAllUsers(){
+//        return userService.findAllUsers();
+//    }
+
     //Post/users
-    @PostMapping("/users")
-    public ResponseEntity<Object> addUser(@RequestBody User user){
-        User savedUser = userService.createUser(user);
-
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(savedUser.getEmailId())
-                .toUri();
-
-        return ResponseEntity.created(location).build();
-    }
+//    @PostMapping("/users/signup")
+//    public ResponseEntity<Object> addUser(@RequestBody User user){
+//        User savedUser = userService.createUser(user);
+//
+//        URI location = ServletUriComponentsBuilder
+//                .fromCurrentRequest()
+//                .path("/{id}")
+//                .buildAndExpand(savedUser.getUsername())
+//                .toUri();
+//
+//        return ResponseEntity.created(location).build();
+//    }
     //Get /user/{id}
 
-    @GetMapping("users/{id}")
-    public User getUser(@PathVariable Integer id){
-        User user = userService.findUser(id);
-        if(user == null){
-            throw new UserNotFoundException("id- " + id);
-        }
-        return user;
-    }
+//    @GetMapping("users/{id}")
+//    public User getUser(@PathVariable Integer id){
+//        User user = userService.findUser(id);
+//        if(user == null){
+//            throw new UserNotFoundException("id- " + id);
+//        }
+//        return user;
+//    }
 
-    //Delete /user/{id}
-    @DeleteMapping("users/{id}")
-    public String deleteUser(@PathVariable Integer id){
-        return userService.deleteUser(id);
-    }
-}
+//Delete /user/{id}
+//    @DeleteMapping("users/{id}")
+//    public String deleteUser(@PathVariable Integer id){
+//        return userService.deleteUser(id);
+//    }

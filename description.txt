@@ -1,0 +1,24 @@
+HOME PAGE ("/home")-
+Signup link, if user is not registered => will route to SIGNUP Page
+Login link, if user is already registered => will route to LOGIN Page
+
+
+SIGNUP PAGE ("/signup")-
+First Name, Last Name, Username, EmailId, Password fields
+Create button, will prompt successful message if username is not taken, else error that username has been taken
+will send GET request to Backend API("/users") to check if username has been taken
+will send POST request to Backend API ("/users") if username is not taken
+
+
+LOGIN PAGE ("/login")
+Fields - Username, password
+Login Button
+will send GET request to Backend API("/users") to check if username is correct, if ok, will route to user home page ("/user/home")
+otherwise will give error that username or password is incorrect
+
+
+USER HOME PAGE ("/user/home")
+Search field for another USER
+Friend List
+user hobbies
+Update hobbies

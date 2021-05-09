@@ -9,7 +9,7 @@ public interface UserService {
 
     public List<User> findAllUsers();
 
-    public User findUser(Integer userId);
-
-    public String deleteUser(Integer userId);
+//    public User findUser(Integer userId);
+//
+//    public String deleteUser(Integer userId);
 }
