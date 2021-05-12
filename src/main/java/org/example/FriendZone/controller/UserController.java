@@ -19,14 +19,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-//    @PostMapping(path = "/users/register")
-//    public void addUser(@RequestBody User user){
-//        userService.createUser(user);
-//    }
-
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.findAllUsers();
+    }
+
+    @PostMapping("/hobbies")
+    public void addHobbies(@RequestBody User user){
+        userService.addHobbies(user);
+
     }
 
 

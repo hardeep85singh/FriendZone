@@ -25,6 +25,17 @@ public class UserServiceImpl implements UserService {
         return (List<User>) userRepository.findAll();
     }
 
+    @Override
+    public void addHobbies(User user) {
+        if(userRepository.existsByUsername(user.getUsername())){
+            User existingUser = userRepository.findByUsername(user.getUsername());
+            existingUser.setHobbies(user.getHobbies());
+
+            User newUser = userRepository.save(existingUser);
+            System.out.println(user.getHobbies());
+        };
+    }
+
 
 }
 
