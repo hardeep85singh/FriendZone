@@ -11,7 +11,10 @@ public interface UserService {
 
     void addHobbies(User user);
 
-//    public User findUser(Integer userId);
-//
-//    public String deleteUser(Integer userId);
+    public User getUser(String username);
+
+    List<User> searchUser(String keyword);
+
+
+
 }
