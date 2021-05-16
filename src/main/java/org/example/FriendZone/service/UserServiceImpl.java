@@ -27,13 +27,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addHobbies(User user) {
-        if(userRepository.existsByUsername(user.getUsername())){
+        if (userRepository.existsByUsername(user.getUsername())) {
             User existingUser = userRepository.findByUsername(user.getUsername());
             existingUser.setHobbies(user.getHobbies());
 
             User newUser = userRepository.save(existingUser);
             System.out.println(user.getHobbies());
-        };
+        }
     }
 
     @Override
@@ -43,15 +43,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> searchUser(String keyword) {
-        if( keyword != null) {
+        if (keyword != null) {
             return userRepository.searchUsers(keyword);
         }
         return userRepository.findAll();
     }
 
+    @Override
+    public User getUserById(long userId) {
+        return userRepository.findByUserId(userId);
+    }
+
+    @Override
+    public User addFriend(Long userId, Long friendId) {
+        User friend = userRepository.findByUserId(friendId);
+        return friend;
+    }
+
 
 }
-
 
 
 //   @Override

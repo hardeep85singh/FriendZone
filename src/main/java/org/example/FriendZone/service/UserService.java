@@ -15,6 +15,8 @@ public interface UserService {
 
     List<User> searchUser(String keyword);
 
+    User getUserById(long userId);
 
+    User addFriend(Long userId, Long friendId);
 
 }

@@ -15,14 +15,27 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
     User findByUsername(String username);
 
+    User findByUserId(long id);
+
     @Query("SELECT u FROM User u WHERE u.firstName LIKE %?1%"
     + " OR u.lastName LIKE %?1%"
     + " OR u.username LIKE %?1%")
     List<User> searchUsers(String keyword);
 
 
+}
+
+
+
+
+
+
+//    @Query("SELECT u FROM User u" +
+//            "JOIN u.id" +
+//            "JOIN u.id")
+//    void addFriend(User user, User friend);
+
+
 
 //    @Query("SELECT u form users u WHERE CONCAT(u.firstName, u.lastName, u.username) LIKE %?1%"
 
-
-}

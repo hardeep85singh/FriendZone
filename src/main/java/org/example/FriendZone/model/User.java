@@ -2,6 +2,8 @@ package org.example.FriendZone.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -11,7 +13,7 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Long userId;
 
     @Column(name = "firstName")
     @NotBlank
@@ -39,6 +41,9 @@ public class User implements Serializable {
     @Size(max=250)
     private String hobbies;
 
+    @OneToMany(mappedBy = "user")
+    private Set<Friend> friends = new HashSet<>();
+
     public User() {
     }
 
@@ -49,6 +54,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public User(String firstName, String lastName, String username){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -57,8 +68,8 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
     public String getFirstName() {
@@ -85,8 +96,8 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getHobbies() {
@@ -95,6 +106,14 @@ public class User implements Serializable {
 
     public void setHobbies(String hobbies) {
         this.hobbies = hobbies;
+    }
+
+    public Set<Friend> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Set<Friend> friends) {
+        this.friends = friends;
     }
 
     @Override

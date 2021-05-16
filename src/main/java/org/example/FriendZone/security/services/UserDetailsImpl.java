@@ -14,15 +14,15 @@ import java.util.stream.Collectors;
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    private Long userId;
 
     private String username;
 
     @JsonIgnore
     private String password;
 
-    public UserDetailsImpl(Long id, String username, String password) {
-        this.id = id;
+    public UserDetailsImpl(Long userId, String username, String password) {
+        this.userId = userId;
         this.username = username;
         this.password = password;
     }
@@ -33,13 +33,13 @@ public class UserDetailsImpl implements UserDetails {
 //                .collect(Collectors.toList());
 
         return new UserDetailsImpl(
-                user.getId(),
+                user.getUserId(),
                 user.getUsername(),
                 user.getPassword());
     }
 
     public Long getId() {
-        return id;
+        return userId;
     }
 
     @Override
@@ -84,7 +84,7 @@ public class UserDetailsImpl implements UserDetails {
         if (o == null || getClass() != o.getClass())
             return false;
         UserDetailsImpl user = (UserDetailsImpl) o;
-        return Objects.equals(id, user.id);
+        return Objects.equals(userId, user.userId);
     }
 }
 
