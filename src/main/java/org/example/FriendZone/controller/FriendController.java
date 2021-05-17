@@ -7,9 +7,12 @@ import org.example.FriendZone.model.Friend;
 import org.example.FriendZone.model.User;
 import org.example.FriendZone.service.FriendService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.management.ObjectName;
+import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
@@ -21,11 +24,18 @@ public class FriendController {
     private FriendService friendService;
 
     @PostMapping ("/friends")
-    public void addFriend(@RequestBody Map<String, Long> object){
-
+    public ResponseEntity<String> addFriend(@RequestBody Map<String, Long> object){
         long userId = object.get("userId");
         long friendId = object.get("friendId");
-        friendService.addFriendById(userId, friendId);
+
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("")
+                .buildAndExpand().toUri();
+        if(userId != friendId){
+            friendService.addFriendById(userId, friendId);
+            return ResponseEntity.created(uri).build();
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping("/friends/{id}")

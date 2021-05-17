@@ -18,11 +18,44 @@ public interface FriendRepository extends JpaRepository<User, Long> {
     @Query(value = "INSERT INTO friends (id, friend_id) VALUES (:userId, :friendId)", nativeQuery = true)
     void saveByUserId(@Param("userId") Long userId, @Param("friendId") Long friendId);
 
-    @Query(value = ("Select u.first_name, u.last_name, u.username "
-            + "from users u "
-            + "join friends f on f.friend_id = ?1"), nativeQuery = true)
-    List<String> getAllFriends(Long id);
+    @Query(value = ("select f.friend_id from friends f where f.id = ?1"), nativeQuery = true)
+    List<Long> getAllFriends(Long id);
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    @Query(value = ("Select u.first_name, u.last_name, u.username "
+//            + "from users u "
+//            + "join friends f on f.friend_id = ?1"), nativeQuery = true)
+//    List<String> getAllFriends(Long id);
+
 
 //    SELECT u FROM User u WHERE u.firstName LIKE %?1%
 //SELECT u form users u WHERE CONCAT(u.firstName, u.lastName, u.username) LIKE %?1%
