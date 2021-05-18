@@ -1,6 +1,5 @@
 package org.example.FriendZone.model;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -15,12 +14,7 @@ public class Friend implements Serializable {
 
     @Id
     @ManyToOne
-//    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User friend;
-
-//    @ManyToOne
-//    @JoinColumn(name="id")
-//    private User user;
 
     public Friend(){};
 

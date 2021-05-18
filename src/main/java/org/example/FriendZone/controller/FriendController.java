@@ -1,9 +1,5 @@
 package org.example.FriendZone.controller;
 
-
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import org.example.FriendZone.model.Friend;
 import org.example.FriendZone.model.User;
 import org.example.FriendZone.service.FriendService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.management.ObjectName;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;

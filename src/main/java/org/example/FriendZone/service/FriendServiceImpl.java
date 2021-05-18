@@ -36,17 +36,3 @@ public class FriendServiceImpl implements FriendService{
 
 }
 
-
-
-//    List<User> users = new LinkedList<>();
-//        for (String str: friendRepository.getAllFriends(userId)){
-//                User user = new User();
-//                user.setFirstName(str);
-//                user.setLastName(str);
-//                user.setUsername(str);
-//                users.add(user);
-//                System.out.println(user.getFirstName());
-//                }
-//
-//                System.out.println(users.toString());
-//                return users;

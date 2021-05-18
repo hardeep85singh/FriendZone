@@ -62,23 +62,3 @@ public class UserServiceImpl implements UserService {
 
 
 }
-
-
-//   @Override
-//   public User findUser(Integer userId){
-//        if(userRepository.existsById(userId)){
-//            return userRepository.getOne(userId);
-//        } else {
-//            return null;
-//        }
-//   }
-
-//    @Override
-//    public String deleteUser(Integer userId) {
-//        if(userRepository.existsById(userId)){
-//            userRepository.deleteById(userId);
-//            return "User deleted successfully";
-//        } else {
-//            return "User not found";
-//        }
-//    }
