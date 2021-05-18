@@ -4,7 +4,6 @@ A simple social circle prototype for users created with AngularJs, Spring Boot a
 ## Table of Contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [Screenshots](#screenshots)
 
 
 ## General info
@@ -26,12 +25,5 @@ Project is created with:
 * SpringBoot 2.4.3
 * Apache Tomcat 8.5.61
 * Postgres 42.2.18
-
-## Screenshots
-* Homepage: ![alt-text](https://github.com/hardeep85singh/ToDo/blob/main/screenshots/AddUsers.gif)
-* Redirect to User 1 ToDo page: ![alt-text](https://github.com/hardeep85singh/ToDo/blob/main/screenshots/RedirectToUserToDoPage.gif)
-* User 1 ToDo page: ![alt-text](https://github.com/hardeep85singh/ToDo/blob/main/screenshots/User1ToDoPage.gif) 
-* Redirect to User 2 ToDo page: ![alt-text](https://github.com/hardeep85singh/ToDo/blob/main/screenshots/RedirectToUser2ToDoPage.gif)
-* User 2 ToDo page: ![alt-text](https://github.com/hardeep85singh/ToDo/blob/main/screenshots/User2ToDoPage.gif)
 
 
